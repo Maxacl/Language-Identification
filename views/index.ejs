@@ -7,13 +7,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Titan+One&display=swap"
     rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="styles/main.css">
+  <link rel="stylesheet" type="text/css" href="/styles.css">
 </head>
 
 <body>
   <h1>What Language is This?</h1>
   <!-- Form to gather user input -->
-  <form action="/detect-language" method="POST">
+  <form action="/language-detected" method="POST">
     <label for="textInput">Enter Text:</label><br>
     <input type="text" id="textInput" name="user-input">
     <button type="submit">Submit</button>
@@ -23,10 +23,17 @@
   <div class="card">
     <p>
       <% if (locals.data) { %>
-        <h1><%= JSON.stringify(locals.data.languageResult) %></h1>
-        <h1><%= JSON.stringify(locals.data.confidenceResult) %></h1>
-        <h1><%= JSON.stringify(locals.data.wordEval) %></h1>
-        <h1><%= JSON.stringify(locals.data.firstResult) %></h1>
+        <h2 class="title">User Input:</h2>
+        <p class="content"><%= data.userText %></p>
+
+        <h2 class="title">Language Detected:</h2>
+        <p class="content"><%= data.finalTranslation %></p>
+
+        <h2 class="title">Confidence Score:</h2>
+        <p class="content"><%= data.confidenceResult %></p>
+
+        <h2 class="title">Reliability Score:</h2>
+        <p class="content"><%= data.reliabilityResult %></p>
       <% } else { %>
         <p><%= "uh-oh, wrong" %></p>
       <% } %> 
