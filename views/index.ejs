@@ -23,7 +23,10 @@
   <div class="card">
     <p>
       <% if (locals.data) { %>
-        <h1><%= JSON.stringify(locals.data.wordEval[0]) %></h1>
+        <h1><%= JSON.stringify(locals.data.languageResult) %></h1>
+        <h1><%= JSON.stringify(locals.data.confidenceResult) %></h1>
+        <h1><%= JSON.stringify(locals.data.wordEval) %></h1>
+        <h1><%= JSON.stringify(locals.data.firstResult) %></h1>
       <% } else { %>
         <p><%= "uh-oh, wrong" %></p>
       <% } %> 
